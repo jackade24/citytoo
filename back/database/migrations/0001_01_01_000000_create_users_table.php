@@ -13,10 +13,27 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('old_email')->nullable();
+            $table->string('enable')->default(false);
+            $table->string('phone')->nullable();
+            $table->string('role');
+            $table->string('custom_permissions');
+            $table->string('payload');
+            $table->string('b_country');
+            $table->string('r_country');
+            $table->string('city');
+            $table->string('state');
+            $table->string('address')->nullable();
+            $table->string('postcode');
+            $table->int('address_verify');
+            $table->int('identity_verfiy');
+            $table->int('phone_verfiy');
+            $table->string('register_ip');
             $table->rememberToken();
             $table->timestamps();
         });
